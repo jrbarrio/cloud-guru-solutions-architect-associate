@@ -7,7 +7,10 @@ init: ## Initialize Terraform project
 plan: init ## Plan resources
 	@terraform plan
 
-apply: init ## Create resources
+analyze: init ## Perform static analysis
+	@tfsec .
+
+apply: analyze ## Create resources
 	@terraform apply
 
 destroy: init ## Destroy resources
