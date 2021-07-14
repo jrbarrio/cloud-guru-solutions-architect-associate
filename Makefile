@@ -10,7 +10,7 @@ plan: init ## Plan resources
 analyze: init ## Perform static analysis
 	@tfsec .
 
-apply: analyze ## Create resources
+apply: init ## Create resources
 	@terraform apply
 
 destroy: init ## Destroy resources
