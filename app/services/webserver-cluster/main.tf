@@ -11,7 +11,7 @@ resource "aws_security_group" "instance" {
 }
 
 data "template_file" "user_data" {
-  template = file("./app/services/webserver-cluster/user-data.sh")
+  template = file("${path.module}/user-data.sh")
 
   vars = {
     server_port = var.server_port
@@ -20,7 +20,7 @@ data "template_file" "user_data" {
 
 resource "aws_launch_configuration" "example" {
   image_id = "ami-05f7491af5eef733a"
-  instance_type = "t2.micro"
+  instance_type = "t2.micro.dfdf"
   security_groups = [
     aws_security_group.instance.id]
 
